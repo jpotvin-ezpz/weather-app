@@ -1,11 +1,11 @@
 import React from 'react';
-import Search from './Search';
+import SearchBtn from './SearchBtn';
 import GetCurrentLocation from './GetCurrentLocation';
 
 const LocationSearch = () => {
   return ( 
     <div className='location-search'>
-      <Search />
+      <SearchBtn />
       <GetCurrentLocation />
     </div>
    );

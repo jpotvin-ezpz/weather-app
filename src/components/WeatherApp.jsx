@@ -48,6 +48,7 @@ function WeatherApp() {
         isCelsius={isCelsius} 
         handleToggleUnits={handleToggleUnits}  
       />
+      <footer>created by jpotvin-ezpz - devChallenges.io</footer>
     </div>
   )
 }

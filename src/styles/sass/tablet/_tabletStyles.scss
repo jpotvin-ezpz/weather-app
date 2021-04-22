@@ -1,0 +1,18 @@
+@media only screen and (min-width: 800px) and (max-width: 960px) {
+  .weather-app {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  .sidebar {
+    width: 40vw;
+  }
+  .main-content {
+    height: 100vh;
+    overflow-y: scroll;
+  }
+  .loc-nav {
+    position: absolute;
+    width: 100%;
+  }
+}

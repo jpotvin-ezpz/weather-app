@@ -13,7 +13,10 @@ body {
   background: #100e1d;
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
-  width: 100vw;
+}
+
+footer {
+  display: none;
 }
 
 .sidebar {
@@ -21,7 +24,7 @@ body {
   background-color: #1e213a;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .loc-nav {
@@ -418,6 +421,90 @@ body {
 #button-1 .knobs:before,
 #button-1 .layer {
   transition: 0.3s ease all;
+}
+
+@media only screen and (min-width: 800px) and (max-width: 960px) {
+  .weather-app {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 40vw;
+  }
+
+  .main-content {
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .loc-nav {
+    position: absolute;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 961px) {
+  .weather-app {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 50vw;
+  }
+
+  .main-content {
+    height: 100vh;
+  }
+
+  .todays-desc {
+    margin: 100px auto;
+  }
+
+  .weekly-forecast {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .highlights-header {
+    margin: auto 54px;
+  }
+
+  .highlights-wrapper {
+    margin: 24px 54px auto 54px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 48px;
+  }
+
+  .highlight {
+    width: 100%;
+    margin: 0;
+  }
+
+  .progress-bar--wrapper {
+    margin-bottom: 20px;
+  }
+
+  .button {
+    top: 25px;
+    right: 20px;
+  }
+
+  footer {
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    right: 25%;
+    font-size: 1.4rem;
+    color: #a09fb1;
+  }
+
+  .loc-nav {
+    position: absolute;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

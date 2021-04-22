@@ -12,7 +12,10 @@ body {
   background: #100e1d;
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
-  width: 100vw;
+}
+
+footer {
+  display: none;
 }
 
 .sidebar {
@@ -20,7 +23,7 @@ body {
   background-color: #1e213a;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 @import "searchForm";
@@ -263,3 +266,5 @@ body {
 }
 
 @import "toggle";
+
+@import "./tablet/tabletStyles", "./desktop/desktopStyles";

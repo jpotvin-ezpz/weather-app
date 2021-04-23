@@ -10,6 +10,7 @@ const SearchForm = ({setIsSearching, handleSetNewCity}) => {
     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${formVal}`)
     .then((resp) => {
       if (!resp.ok) {
+        alert('Request access at https://cors-anywhere.herokuapp.com/corsdemo');
         throw new Error ('Probably need to request access https://cors-anywhere.herokuapp.com/corsdemo')
       } else {
         return resp.json();
@@ -61,7 +62,6 @@ const SearchForm = ({setIsSearching, handleSetNewCity}) => {
         </div>
         <ul className='match-list'>
           {matchList}
-          {/* onClick changes displaying data and closes search  */}
         </ul>
       </div>
     </div>

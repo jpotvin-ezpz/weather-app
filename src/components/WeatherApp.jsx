@@ -17,6 +17,7 @@ function WeatherApp() {
       fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=${latt},${long}`)
       .then((response) => {
         if (!response.ok) {
+          alert('Request access at https://cors-anywhere.herokuapp.com/corsdemo');
           throw new Error('Too many Requests or Check access https://cors-anywhere.herokuapp.com/corsdemo', response)
         } else { return response.json()}
       })
@@ -35,7 +36,8 @@ function WeatherApp() {
     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${WOEID}/`)
     .then(response => {
       if (!response.ok) {
-        throw new Error ('Too many Requests or Check access https://cors-anywhere.herokuapp.com/corsdemo', response)
+        alert('Request access at https://cors-anywhere.herokuapp.com/corsdemo');
+        throw new Error('Too many Requests or Check access https://cors-anywhere.herokuapp.com/corsdemo', response)
       } else { 
         return response.json();
       }

@@ -1,9 +1,10 @@
 import React from 'react';
 
-const SearchBtn = () => {
+const SearchBtn = ({setIsSearching}) => {
   return ( 
     <button 
-      className='search'  
+      className='search'
+      onClick={() => setIsSearching(true)}  
     >
     Search for places
     </button>

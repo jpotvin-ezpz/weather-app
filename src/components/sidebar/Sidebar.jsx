@@ -3,11 +3,13 @@ import LocationSearch from './LocationSearch/LocationSearch';
 import SearchForm from './LocationSearch/SearchForm';
 import TodaysForecast from './TodaysForecast/TodaysForecast';
 
-const Sidebar = ({weather, isCelsius}) => {
+const Sidebar = ({weather, isCelsius, fetchLocal, handleSetNewCity, setIsSearching, isSearching}) => {
+
+
   return ( 
     <div className='sidebar'>
-      <SearchForm />
-      <LocationSearch />
+      {isSearching && <SearchForm handleSetNewCity={handleSetNewCity} setIsSearching={setIsSearching}/>}
+      <LocationSearch fetchLocal={fetchLocal} setIsSearching={setIsSearching}/>
       <TodaysForecast weather={weather} isCelsius={isCelsius}/>
     </div>
    );

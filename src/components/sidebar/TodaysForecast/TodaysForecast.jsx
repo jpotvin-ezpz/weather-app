@@ -7,7 +7,6 @@ import TodaysType from './TodaysType';
 import BgClouds from '../../../pics/Cloud-background.png'
 
 const TodaysForecast = ({weather, isCelsius}) => {
-  console.log(weather)
   return ( 
     <div className='todays-forecast'>
       <img className='clouds-background' src={BgClouds} alt=''/>

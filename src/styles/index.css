@@ -36,6 +36,7 @@ footer {
   height: 100vh;
   z-index: 2;
   background: #1e213a;
+  overflow-y: scroll;
 }
 
 .close {
@@ -76,15 +77,29 @@ footer {
   background: transparent;
   color: #616475;
   border: thin solid #e7e7eb;
-  padding: 10px 10px 10px 35px;
+  padding: 14px 14px 14px 40px;
   font-size: 1.6rem;
+  width: 100%;
 }
 
 .search-input--wrapper .material-icons {
   position: absolute;
-  top: 7px;
+  top: 12px;
   left: 9px;
   color: #616475;
+}
+
+.search-form {
+  display: flex;
+}
+
+.submit-btn {
+  background: #3c47e9;
+  border: thin solid #3c47e9;
+  font-size: 1.6rem;
+  padding: 14px;
+  margin-left: 12px;
+  color: #e7e7eb;
 }
 
 .match-list {
@@ -452,7 +467,7 @@ footer {
   }
 
   .sidebar {
-    width: 50vw;
+    width: 40vw;
   }
 
   .main-content {

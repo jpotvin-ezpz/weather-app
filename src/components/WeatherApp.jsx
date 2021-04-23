@@ -7,6 +7,7 @@ import '../styles/index.css'
 function WeatherApp() {
   const [isCelsius, setIsCelsius] = useState(true);
   const [weather, setWeather] = useState(Default);
+  const [isSearching, setIsSearching] = useState(false)
 
   function fetchLocalWeather() {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -14,34 +15,53 @@ function WeatherApp() {
       const long = position.coords.longitude;
       let localWOEID;
       fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=${latt},${long}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Too many Requests or Check access https://cors-anywhere.herokuapp.com/corsdemo', response)
+        } else { return response.json()}
+      })
       .then(data => {
         localWOEID = data[0].woeid;
         fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${localWOEID}/`)
         .then(response => response.json())
-        .then(data => {
-          setWeather(data);
-        })
+        .then(data => setWeather(data))
       })
     })
   }
 
-  // TODO invoke in Unit toggler
+  function handleSetNewCity(data) {
+    console.log(data);
+    const WOEID = data.woeid
+    fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${WOEID}/`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error ('Too many Requests or Check access https://cors-anywhere.herokuapp.com/corsdemo', response)
+      } else { 
+        return response.json();
+      }
+    })
+    .then(data => setWeather(data))
+    setIsSearching(false);
+  }
+  
   function handleToggleUnits() {
     setIsCelsius(!isCelsius);
   }
 
-  // useEffect(() => {
-  //   fetchLocalWeather()
-  // },[])
+  useEffect(() => {
+    fetchLocalWeather()
+  },[])
 
-  // console.log(weather)
 
   return (
     <div className='weather-app'>
       <Sidebar
+        isSearching={isSearching}
+        setIsSearching={setIsSearching}
         weather={weather}
         isCelsius={isCelsius}
+        fetchLocal={fetchLocalWeather}
+        handleSetNewCity={handleSetNewCity}
       />
       <MainContent 
         weather={weather} 
